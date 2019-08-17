@@ -7,6 +7,7 @@ package ca.sheridancollege.project;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.*;
 
 /**
  * A concrete class that represents any grouping of cards for a Game.
@@ -14,8 +15,11 @@ import java.util.Collections;
  * The group of cards has a maximum size attribute which is flexible for reuse.
  * 
  */
-public class GroupOfCards 
+public class GroupOfCards  
 {
+
+    public GroupOfCards() {
+    }
    
     //The group of cards, stored in an ArrayList
     private ArrayList <Card> cards;
@@ -24,12 +28,36 @@ public class GroupOfCards
     public GroupOfCards(int givenSize)
     {
         size = givenSize;
+        cards = new ArrayList<>();
+        
     }
     
     /**
      * A method that will get the group of cards as an ArrayList
      * @return the group of cards.
      */
+    public ArrayList<Card> makeHand(){       
+       
+    
+        Deck d = new Deck();
+        Card[] dd= new Card[d.reset().length];
+        dd = Arrays.copyOf(d.reset(),d.reset().length);
+                        
+        for (int i = 0; i <dd.length; i++) {
+            
+            cards.add(dd[i]);
+                                  
+        }
+        shuffle();
+        cards.subList(8, dd.length-1).clear();
+        return cards;
+                
+        
+    }
+    
+    public void setCards(ArrayList<Card> cards){
+        this.cards = cards;
+    }
     public ArrayList<Card> showCards()
     {
         return cards;
@@ -54,4 +82,5 @@ public class GroupOfCards
         size = givenSize;
     }
     
+  
 }//end class

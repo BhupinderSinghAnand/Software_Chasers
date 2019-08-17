@@ -5,6 +5,8 @@
  */
 package ca.sheridancollege.project;
 
+import java.util.ArrayList;
+
 /**
  * A class that models each Player in the game. Players have an identifier, which should be unique.
  * 
@@ -12,14 +14,15 @@ package ca.sheridancollege.project;
 public abstract class Player 
 {
     private String playerID; //the unique ID for this player
-    
+    ArrayList<Card> cards = new ArrayList<>();
     /**
      * A constructor that allows you to set the player's unique ID
      * @param name the unique ID to assign to this player.
      */
-    public Player(String name)
+    public Player(String name,ArrayList<Card> cards)
     {
         playerID= name;
+        this.cards= cards;
     }
     
     /**
@@ -37,6 +40,13 @@ public abstract class Player
     public void setPlayerID(String givenID) 
     {
         playerID = givenID;
+    }
+    public ArrayList<Card> getCards() {
+        return cards;
+    }
+
+    public void setCards(ArrayList<Card> cards) {
+        this.cards = cards;
     }
     
     /**

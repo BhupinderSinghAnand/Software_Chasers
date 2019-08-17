@@ -41,14 +41,14 @@ public class Uno extends Game{
             System.out.print("Player "+(i+1)+":");
             
             System.out.println(getPlayers().get(i).getPlayerID());
-            for (int j = 0; j < getPlayers().get(i).getCards().size(); j++) {
+            /*for (int j = 0; j < getPlayers().get(i).getCards().size(); j++) {
                     
                 Card.Color c = getPlayers().get(i).getCards().get(j).getColor();
                 
                 System.out.println(c +" ");
                 
                 
-            }
+            }**/
             
             
         }
